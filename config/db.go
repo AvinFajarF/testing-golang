@@ -6,14 +6,15 @@ import (
 	"gorm.io/gorm"
 )
 
-func init(){
+func init() {
 	ConnectionDB()
+	ConnectRPC()
 }
 
 var DB *gorm.DB
 var err error
 
-func ConnectionDB(){
+func ConnectionDB() {
 	dsn := "host=127.0.0.1 user=root password=root dbname=root port=5432 sslmode=disable TimeZone=Asia/Shanghai"
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
